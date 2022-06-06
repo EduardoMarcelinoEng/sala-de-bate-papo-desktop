@@ -3,6 +3,7 @@ let socket;
 let btnSend = document.querySelector(".btn[type='submit']");
 let targetMessage = document.querySelector("input[name='message']");
 let listOfMessages = document.getElementsByClassName("list-of-messages")[0];
+let myNickname;
 
 const sendMessage = (event)=>{
     event.preventDefault();
@@ -55,7 +56,10 @@ const createElementHTML = (author, classList, time = timeCurrent, text = getText
 
 new Promise((resolve)=>{
     ipcRenderer.send('get-nickname');
-    ipcRenderer.on('get-nickname', (event, nickname)=>resolve(nickname));
+    ipcRenderer.on('get-nickname', (event, nickname)=>{
+        myNickname = nickname;
+        resolve(nickname);
+    });
 })
     .then(myNickname=>{
         socket = io('https://sala-de-bate-papo.herokuapp.com', {query: `nickname=${myNickname}`});
