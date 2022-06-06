@@ -1,16 +1,30 @@
 {
   "name": "sala-de-bate-papo-desktop",
   "version": "1.0.0",
-  "description": "",
+  "description": "Espaço virtual para trocar mensagens. (Versão desktop)",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
+    "packager-windows": "electron-packager . sala-de-bate-papo --platform=win32 --arch=x64 --icon=app/img/icon.ico",
+    "packager-linux": "electron-packager . sala-de-bate-papo --platform=linux --arch=x64 --icon=app/img/icon.png",
+    "packager-mac": "electron-packager . sala-de-bate-papo --platform=darwin --arch=x64 --icon=app/img/icon.icns",
+    "packager-all": "electron-packager . sala-de-bate-papo --platform=darwin,linux,win32 --arch=x64 --icon=app/img/icon",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "electron",
+    "html",
+    "css",
+    "javascript",
+    "chat",
+    "desktop"
+  ],
+  "author": "Eduardo Marcelino",
+  "license": "MIT",
   "dependencies": {
     "electron": "^19.0.3"
+  },
+  "devDependencies": {
+    "electron-packager": "^15.5.1"
   }
 }

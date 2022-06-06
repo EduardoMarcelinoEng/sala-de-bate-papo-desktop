@@ -6,6 +6,7 @@ app.on('ready', ()=>{
     mainWindow = new BrowserWindow({
         height: 600,
         width: 600,
+        icon: `./app/img/favicon.ico`,
         resizable: false,
         webPreferences: {
             nodeIntegration: true,
